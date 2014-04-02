@@ -1,0 +1,8 @@
+
+# eclipse cruft that should be generated with `atlas-mvn eclipse:eclipse`
+.classpath
+.project
+.settings/
+
+# atlas output directory
+target/
