@@ -1,0 +1,10 @@
+$webResourceManager.requireResource("com.github.ibraimgm.jira.jira-utility-pack:jira-utility-pack-resources")
+#if ($longDescription)
+<strong style="color:$color;">$longDescription</strong>
+&nbsp;
+<a target="about:blank"
+   style="font-size:small;" 
+   href="$req.contextPath/download/resources/com.github.ibraimgm.jira.jira-utility-pack:jira-utility-pack-resources/images/alignment_chart.jpg">
+(view alignment chart)
+</a>
+#end

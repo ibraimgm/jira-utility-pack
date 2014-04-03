@@ -1,0 +1,21 @@
+#customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
+$webResourceManager.requireResource("com.github.ibraimgm.jira.jira-utility-pack:jira-utility-pack-resources")
+<select id="lvc_$customField.id">
+<option value="L">Lawful</option>
+<option value="N">Neutral</option>
+<option value="C">Chaotic</option>
+</select>
+<select id="gve_$customField.id">
+<option value="G">Good</option>
+<option value="N">Neutral</option>
+<option value="E">Evil</option>
+</select>
+<input type="hidden" id="$customField.id" name="$customField.id" value="$!value">
+<script type="text/javascript">
+JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function (e, context) {
+  // note: jira executes this a lot of times
+  enableDnDAlignmentField("$customField.id", "$!lvc", "$!gve");
+});
+//enableDnDAlignmentField("$customField.id", "$!lvc", "$!gve");
+</script>
+#customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)
