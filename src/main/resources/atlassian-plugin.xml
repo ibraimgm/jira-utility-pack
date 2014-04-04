@@ -61,9 +61,7 @@
   <web-item name="Demon's Souls Planner" i18n-name-key="des-link.name" key="des-link" section="planner-menu/char-planner-section" weight="1000">
     <description key="des-link.description" />
     <label key="des-link.label" />
-    <!-- <link linkId="des-link">http://mugenmonkey.com/demonssouls/</link> -->
     <link linkId="des-link">http://mugenmonkey.com/demonssouls/" target="_blank</link>
-    <!--  <link linkId="des-link">javascript:window.open('http://mugenmonkey.com/demonssouls/','_des_window').focus();</link> -->
     <icon width="16" height="16">
       <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/mugen_favicon.ico</link>
     </icon>
@@ -110,6 +108,14 @@
       <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/des_favicon.gif</link>
     </icon>
   </web-item>  
+  
+  <!-- panel with 'quote of the issue' on the issue -->
+  <web-panel name="Quote of the issue" key="quote-of-the-issue" location="atl.jira.view.issue.right.context">
+    <label key="quote-of-the-issue.label" />
+    <description key="quote-of-the-issue.description" />
+    <resource name="view" type="velocity" location="templates/quote-of-the-issue.vm" />
+    <context>atl.general</context>
+  </web-panel>
  
   <!-- import from the product container -->
   <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>

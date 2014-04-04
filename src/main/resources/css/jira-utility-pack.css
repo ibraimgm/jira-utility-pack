@@ -1,0 +1,17 @@
+#quote 
+{
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;  
+  white-space: pre-line;
+}
+
+#quote-link
+{
+  margin-top:10px;
+  display:block;
+  font-size:small;
+}
+
+.invisible
+{
+  display:none;
+}

@@ -1,0 +1,11 @@
+$webResourceManager.requireResource("com.github.ibraimgm.jira.jira-utility-pack:jira-utility-pack-resources")
+<p>
+<img id="quote-loader"
+     src="$helper.request.contextPath/download/resources/com.github.ibraimgm.jira.jira-utility-pack:jira-utility-pack-resources/images/ajax-loader.gif"
+     alt="Loading..." />
+<p id="quote" />
+<a id="quote-link" target="_blank" />
+</p>
+<script type="text/javascript">
+fetchQuoteOfTheIssue();
+</script>
