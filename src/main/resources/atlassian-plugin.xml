@@ -1,38 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<atlassian-plugin key="${project.groupId}.${project.artifactId}"
-                  name="${project.name}" plugins-version="2">
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
   <plugin-info>
     <description>${project.description}</description>
     <version>${project.version}</version>
-    <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
     <param name="plugin-icon">images/pluginIcon.png</param>
     <param name="plugin-logo">images/pluginLogo.png</param>
   </plugin-info>
-
+ 
   <!-- add our i18n resource -->
-  <resource type="i18n" name="i18n" location="jira-utility-pack" />
-
+  <resource type="i18n" name="i18n" location="jira-utility-pack"/>
+ 
   <!-- add our web resources -->
   <web-resource key="jira-utility-pack-resources" name="Jira Utility Pack Web Resources">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
-    <resource type="download" name="jira-utility-pack.css" location="/css/jira-utility-pack.css" />
-    <resource type="download" name="jira-utility-pack.js" location="/js/jira-utility-pack.js" />
-    <resource type="download" name="images/" location="/images" />
+    <resource type="download" name="jira-utility-pack.css" location="/css/jira-utility-pack.css"/>
+    <resource type="download" name="jira-utility-pack.js" location="/js/jira-utility-pack.js"/>
+    <resource type="download" name="images/" location="/images"/>
     <context>atl.general</context>
   </web-resource>
-
+ 
   <!-- publish our components -->
   <component key="myPluginComponent" class="com.github.ibraimgm.jira.utilitypack.MyPluginComponentImpl" public="true">
     <interface>com.github.ibraimgm.jira.utilitypack.MyPluginComponent</interface>
   </component>
-
+ 
+ <!-- Custom field type for issue alignment -->
   <customfield-type name="DnD Alignment Custom Field" i18n-name-key="dnd-alignment-custom-field.name" key="dnd-alignment-custom-field" class="com.github.ibraimgm.jira.utilitypack.DnDAlignmentCustomField">
     <description key="dnd-alignment-custom-field.description">Dungeons and Dragons Alignment Custom Field Plugin</description>
-    <resource name="view" type="velocity" location="/templates/customfields/dnd-alignment-custom-field/view.vm" />
-    <resource name="edit" type="velocity" location="/templates/customfields/dnd-alignment-custom-field/edit.vm" />
+    <resource name="view" type="velocity" location="/templates/customfields/dnd-alignment-custom-field/view.vm"/>
+    <resource name="edit" type="velocity" location="/templates/customfields/dnd-alignment-custom-field/edit.vm"/>
   </customfield-type>
-
+  
+  <!-- 
+   main menu item for rpg planning.
+   Take a look at the 'creative' solution to open the links in a new window/tab... 
+   -->
+  <web-item name="RPG Planner" i18n-name-key="planner-menu.name" key="planner-menu" section="system.top.navigation.bar" weight="1000">
+    <description key="planner-menu.description" />
+    <label key="planner-menu.label" />
+    <link linkId="planner-menu" />
+  </web-item>
+  
+  <!-- character planner section and links -->
+  <web-section name="Character Planners" i18n-name-key="char-planner-section.name" key="char-planner-section" location="planner-menu" weight="1000">
+    <description key="char-planner-section.description" />
+    <label key="char-planner-section.label"/>
+  </web-section>
+  
+  <web-item name="NWN2DB" i18n-name-key="nwn2db-link.name" key="nwn2db-link" section="planner-menu/char-planner-section" weight="1000">
+    <description key="nwn2db-link.description" />
+    <label key="nwn2db-link.label" />
+    <link linkId="nwn2db-link">http://nwn2db.com" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/nwn2db_favicon.png</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Demon's Souls Planner" i18n-name-key="des-link.name" key="des-link" section="planner-menu/char-planner-section" weight="1000">
+    <description key="des-link.description" />
+    <label key="des-link.label" />
+    <!-- <link linkId="des-link">http://mugenmonkey.com/demonssouls/</link> -->
+    <link linkId="des-link">http://mugenmonkey.com/demonssouls/" target="_blank</link>
+    <!--  <link linkId="des-link">javascript:window.open('http://mugenmonkey.com/demonssouls/','_des_window').focus();</link> -->
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/mugen_favicon.ico</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Dark Souls Planner" i18n-name-key="das-link.name" key="das-link" section="planner-menu/char-planner-section" weight="1000">
+    <description key="das-link.description" />
+    <label key="das-link.label" />
+    <link linkId="das-link">http://mugenmonkey.com/darksouls/" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/mugen_favicon.ico</link>
+    </icon>
+  </web-item>
+  
+  <!-- wiki sections and links -->
+  <web-section name="Wikis" i18n-name-key="wiki-section.name" key="wiki-section" location="planner-menu" weight="1000">
+    <description key="wiki-section.description" />
+    <label key="wiki-section.label"/>
+  </web-section>
+  
+  <web-item name="NWN2 Wiki" i18n-name-key="nwn2-wiki-link.name" key="nwn2-wiki-link" section="planner-menu/wiki-section" weight="1000">
+    <description key="nwn2-wiki-link.description" />
+    <label key="nwn2-wiki-link.label" />
+    <link linkId="nwn2-wiki-link">http://nwn2.wikia.com/wiki/Main_Page" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/nwn2_favicon.ico</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Demon's Souls Wiki" i18n-name-key="des-wiki-link.name" key="des-wiki-link" section="planner-menu/wiki-section" weight="1000">
+    <description key="des-wiki-link.description" />
+    <label key="des-wiki-link.label" />
+    <link linkId="des-wiki-link">http://demonssouls.wikidot.com" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/des_favicon.gif</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Dark Souls Wiki" i18n-name-key="das-wiki-link.name" key="das-wiki-link" section="planner-menu/wiki-section" weight="1000">
+    <description key="das-wiki-link.description" />
+    <label key="das-wiki-link.label" />
+    <link linkId="das-wiki-link">http://darksouls.wikidot.com" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/des_favicon.gif</link>
+    </icon>
+  </web-item>  
+ 
   <!-- import from the product container -->
-  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
+  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
 </atlassian-plugin>
