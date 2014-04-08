@@ -59,7 +59,6 @@ function fetchQuoteOfTheIssue()
       // work with the response
       success: function( response ) {
           obj = response.query.results.json;
-          console.log( obj ); // server response
           $("#quote-loader").addClass("invisible");
           $("#quote").text(obj.quote);
           $("#quote-link").text("(view quote source)");
