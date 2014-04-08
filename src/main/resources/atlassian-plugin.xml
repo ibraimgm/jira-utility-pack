@@ -17,6 +17,9 @@
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="jira-utility-pack.css" location="/css/jira-utility-pack.css"/>
     <resource type="download" name="jira-utility-pack.js" location="/js/jira-utility-pack.js"/>
+    <resource type="download" name="elizabot.js" location="/js/elizabot.js"/>
+    <resource type="download" name="elizadata.js" location="/js/elizadata.js"/>
+    <resource type="download" name="elizahelpers.js" location="/js/elizahelpers.js"/>
     <resource type="download" name="images/" location="/images"/>
     <context>atl.general</context>
   </web-resource>
@@ -169,6 +172,26 @@
     <link linkId="what-to-do-action-link">/secure/WhatToDo!default.jspa?issueId=${issue.id}</link>
     <styleClass>trigger-dialog</styleClass>
   </web-item>
+  
+  <!--
+   custom action and associated menu item with provides 
+   psychiatric help to the user 
+   -->
+   <webwork1 class="java.lang.Object" key="eliza-action" name="Eliza (psychoterapist)">
+     <description key="eliza-action.description" />
+     <actions>
+       <action name="com.atlassian.jira.web.action.JiraWebActionSupport" alias="Eliza">
+         <view name="input">templates/eliza.vm</view>
+       </action>
+     </actions>
+   </webwork1>
+   
+   <web-item name="Psycotherapist" key="eliza-action-link" section="system.user.options/personal">
+     <description key="eliza-action-link.description" />
+     <label key="eliza-action-link.label" />
+     <link linkId="eliza-action-link">/secure/Eliza!default.jspa</link>
+     <styleClass>trigger-dialog</styleClass>
+   </web-item>
 
   <!-- import from the product container -->
   <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>

@@ -26,6 +26,48 @@
   padding: 10px;
 }
 
+.psy_table
+{  
+  margin:20px auto; 
+  text-align:center;
+  background: #205081;
+  border: 1px solid #205081;
+  border-radius: 15px;
+}
+
+.psy_title
+{
+  font-family: Liberation Sans Narrow;
+  font-size:x-large;
+  color:#FAFAD2;
+  font-weight:bold;
+  padding:5px;
+}
+
+.psy_subtitle
+{
+  font-family: Liberation Sans Narrow;
+  font-size:small;
+  color:beige;
+}
+
+#e_display
+{
+  border: 1px solid #3878B8;
+  border-radius:5px;
+  background:#3878B8;
+  color:yellow;
+}
+
+#e_input
+{
+  width:98%;
+  border: 1px solid #3878B8;
+  border-radius:5px;
+  background:#3878B8;
+  color:white;
+}
+
 .invisible
 {
   display:none;
