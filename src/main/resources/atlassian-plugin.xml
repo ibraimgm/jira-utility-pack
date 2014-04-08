@@ -22,6 +22,7 @@
     <resource type="download" name="elizahelpers.js" location="/js/elizahelpers.js"/>
     <resource type="download" name="images/" location="/images"/>
     <context>atl.general</context>
+    <context>atl.admin</context>
   </web-resource>
 
   <!-- publish our components -->
