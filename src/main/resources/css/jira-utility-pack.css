@@ -1,6 +1,6 @@
-#quote 
+#quote
 {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;  
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   white-space: pre-line;
 }
 
@@ -9,6 +9,21 @@
   margin-top:10px;
   display:block;
   font-size:small;
+}
+
+.what-to-do-message
+{
+  font-family: Liberation Sans Narrow;
+  font-size:large;
+  color: #003300;
+  padding:20px;
+}
+
+.what-to-do-header
+{
+  font-family: Monotype Corsiva;
+  font-size:medium;
+  padding: 10px;
 }
 
 .invisible
