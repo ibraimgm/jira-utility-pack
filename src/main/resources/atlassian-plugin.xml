@@ -108,6 +108,39 @@
       <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/des_favicon.gif</link>
     </icon>
   </web-item>
+  
+  <!-- Some extra useful links -->
+  <web-section name="Important Links" i18n-name-key="important-section.name" key="important-section" location="planner-menu" weight="1000">
+    <description key="important-section.description" />
+    <label key="important-section.label"/>
+  </web-section>
+  
+  <web-item name="The place where the Devil lies" i18n-name-key="devil-link.name" key="devil-link" section="planner-menu/important-section" weight="1000">
+    <description key="devil-link.description" />
+    <label key="devil-link.label" />
+    <link linkId="devil-link">http://www.microsoft.com" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/devil.ico</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Where true love really is" i18n-name-key="love-link.name" key="love-link" section="planner-menu/important-section" weight="1000">
+    <description key="love-link.description" />
+    <label key="love-link.label" />
+    <link linkId="love-link">http://www.gnu.org" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/love.ico</link>
+    </icon>
+  </web-item>
+  
+  <web-item name="Keep the dogs running!" i18n-name-key="dogs-link.name" key="dogs-link" section="planner-menu/important-section" weight="1000">
+    <description key="dogs-link.description" />
+    <label key="dogs-link.label" />
+    <link linkId="dogs-link">http://www.omfgdogs.com" target="_blank</link>
+    <icon width="16" height="16">
+      <link>/download/resources/${project.groupId}.${project.artifactId}:jira-utility-pack-resources/images/dog.ico</link>
+    </icon>
+  </web-item>
 
   <!-- panel with 'quote of the issue' on the issue -->
   <web-panel name="Quote of the issue" key="quote-of-the-issue" location="atl.jira.view.issue.right.context">
